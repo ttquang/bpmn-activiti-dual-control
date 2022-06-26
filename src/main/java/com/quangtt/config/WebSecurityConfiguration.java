@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.activiti.examples;
+package com.quangtt.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,9 +38,9 @@ import java.util.stream.Collectors;
 
 @Configuration
 @EnableWebSecurity
-public class DemoApplicationConfiguration extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private Logger logger = LoggerFactory.getLogger(DemoApplicationConfiguration.class);
+    private Logger logger = LoggerFactory.getLogger(WebSecurityConfiguration.class);
 
     @Override
     @Autowired
@@ -58,7 +58,7 @@ public class DemoApplicationConfiguration extends WebSecurityConfigurerAdapter {
                 {"ryandawsonuk", "password", "ROLE_ACTIVITI_USER", "GROUP_activitiTeam"},
                 {"erdemedeiros", "password", "ROLE_ACTIVITI_USER", "GROUP_activitiTeam"},
                 {"other", "password", "ROLE_ACTIVITI_USER", "GROUP_otherTeam"},
-                {"admin", "password", "ROLE_ACTIVITI_ADMIN"},
+                {"admin", "password", "ROLE_ACTIVITI_USER"},
         };
 
         for (String[] user : usersGroupsAndRoles) {

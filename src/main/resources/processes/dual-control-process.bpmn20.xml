@@ -2,9 +2,9 @@
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://bpmn.io/schema/bpmn" id="Definitions_0v7t65f">
   <process id="dualControlProcess" name="Dual Control Process" isExecutable="true">
     <startEvent id="startevent1" name="Start"></startEvent>
-    <userTask id="PENDING_CREATE" name="Pending Create" activiti:candidateGroups="activitiTeam"></userTask>
-    <userTask id="ACTIVE" name="Active" activiti:candidateGroups="activitiTeam"></userTask>
-    <userTask id="REJECTED_CREATE" name="Rejected Create" activiti:candidateGroups="activitiTeam"></userTask>
+    <userTask id="PENDING_CREATE" name="Pending Create" activiti:assignee="admin"></userTask>
+    <userTask id="ACTIVE" name="Active" activiti:assignee="admin"></userTask>
+    <userTask id="REJECTED_CREATE" name="Rejected Create" activiti:assignee="admin"></userTask>
     <exclusiveGateway id="exclusivegateway1" name="Exclusive Gateway"></exclusiveGateway>
     <sequenceFlow id="flow3" sourceRef="PENDING_CREATE" targetRef="exclusivegateway1"></sequenceFlow>
     <sequenceFlow id="flow4" name="Checker Approve" sourceRef="exclusivegateway1" targetRef="ACTIVE">
@@ -15,12 +15,12 @@
       <documentation>REJECT</documentation>
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${transitionName=='REJECT'}]]></conditionExpression>
     </sequenceFlow>
-    <userTask id="DRAFT_CREATE" name="Draft Create" activiti:candidateGroups="activitiTeam"></userTask>
+    <userTask id="DRAFT_CREATE" name="Draft Create" activiti:assignee="admin"></userTask>
     <exclusiveGateway id="exclusivegateway4" name="Exclusive Gateway"></exclusiveGateway>
     <sequenceFlow id="flow15" sourceRef="ACTIVE" targetRef="exclusivegateway4"></sequenceFlow>
-    <userTask id="PENDING_UPDATE" name="Pending Update" activiti:candidateGroups="activitiTeam"></userTask>
-    <userTask id="REJECTED_UPDATE" name="Rejected Update" activiti:candidateGroups="activitiTeam"></userTask>
-    <userTask id="DRAFT_UPDATE" name="Draft Update" activiti:candidateGroups="activitiTeam"></userTask>
+    <userTask id="PENDING_UPDATE" name="Pending Update" activiti:assignee="admin"></userTask>
+    <userTask id="REJECTED_UPDATE" name="Rejected Update" activiti:assignee="admin"></userTask>
+    <userTask id="DRAFT_UPDATE" name="Draft Update" activiti:assignee="admin"></userTask>
     <exclusiveGateway id="exclusivegateway5" name="Exclusive Gateway"></exclusiveGateway>
     <sequenceFlow id="flow16" name="Maker Submit" sourceRef="exclusivegateway4" targetRef="PENDING_UPDATE">
       <documentation>SUBMIT</documentation>
@@ -57,21 +57,21 @@
       <documentation>CANCEL</documentation>
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${transitionName=='CANCEL'}]]></conditionExpression>
     </sequenceFlow>
-    <userTask id="PENDING_DELETE" name="Pending Delete" activiti:candidateGroups="activitiTeam"></userTask>
+    <userTask id="PENDING_DELETE" name="Pending Delete" activiti:assignee="admin"></userTask>
     <sequenceFlow id="flow31" name="Maker Delete" sourceRef="exclusivegateway4" targetRef="PENDING_DELETE">
       <documentation>DELETE</documentation>
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${transitionName=='DELETE'}]]></conditionExpression>
     </sequenceFlow>
     <exclusiveGateway id="exclusivegateway8" name="Exclusive Gateway"></exclusiveGateway>
     <sequenceFlow id="flow32" sourceRef="PENDING_DELETE" targetRef="exclusivegateway8"></sequenceFlow>
-    <userTask id="DELETED" name="Deleted" activiti:candidateGroups="activitiTeam"></userTask>
+    <userTask id="DELETED" name="Deleted" activiti:assignee="admin"></userTask>
     <sequenceFlow id="flow33" name="Checker Approve" sourceRef="exclusivegateway8" targetRef="DELETED">
       <documentation>APPROVE</documentation>
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${transitionName=='APPROVE'}]]></conditionExpression>
     </sequenceFlow>
     <endEvent id="endevent2" name="End"></endEvent>
     <sequenceFlow id="flow34" sourceRef="DELETED" targetRef="endevent2"></sequenceFlow>
-    <userTask id="REJECTED_DELETE" name="Rejected Delete" activiti:candidateGroups="activitiTeam"></userTask>
+    <userTask id="REJECTED_DELETE" name="Rejected Delete" activiti:assignee="admin"></userTask>
     <sequenceFlow id="flow35" name="Checker Reject" sourceRef="exclusivegateway8" targetRef="REJECTED_DELETE">
       <documentation>REJECT</documentation>
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${transitionName=='REJECT'}]]></conditionExpression>
@@ -109,7 +109,7 @@
       <documentation>SUBMIT</documentation>
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${transitionName=='SUBMIT'}]]></conditionExpression>
     </sequenceFlow>
-    <userTask id="usertask1" name="Deleted" activiti:candidateGroups="activitiTeam"></userTask>
+    <userTask id="usertask1" name="Deleted" activiti:assignee="admin"></userTask>
     <sequenceFlow id="flow51" name="Maker Delete" sourceRef="exclusivegateway12" targetRef="usertask1">
       <documentation>DELETE</documentation>
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${transitionName=='DELETE'}]]></conditionExpression>

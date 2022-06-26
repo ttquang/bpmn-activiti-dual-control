@@ -1,4 +1,4 @@
-package org.activiti.examples;
+package com.quangtt.application;
 
 import org.activiti.api.process.model.ProcessDefinition;
 import org.activiti.api.process.runtime.ProcessRuntime;

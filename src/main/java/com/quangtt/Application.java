@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.activiti.examples;
+package com.quangtt;
 
 import org.activiti.api.process.runtime.connector.Connector;
 import org.springframework.boot.SpringApplication;
@@ -29,10 +29,10 @@ import java.util.Map;
         SecurityAutoConfiguration.class,
         ManagementWebSecurityAutoConfiguration.class
 })
-public class DemoApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
     @Bean
